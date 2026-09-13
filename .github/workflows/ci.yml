@@ -1,0 +1,38 @@
+name: CineBook CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run QA Unit & Security Tests
+        run: npm run test:qa
+
+      - name: Run Concurrency Race Condition Test
+        run: npm run test:concurrency
+
+      - name: Run Next.js Production Build
+        run: npm run build
+        env:
+          DATABASE_URL: "postgresql://mock:mock@localhost:5432/cinebook"
+          JWT_SECRET: "ci_jwt_secret_key_test_2026_x99a"
+          CRON_SECRET: "ci_cron_secret_test_991823"
+          PAYMENT_PROVIDER: "test_gateway"

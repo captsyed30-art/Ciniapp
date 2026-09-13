@@ -1,7 +1,14 @@
 {
-  "name": "cinebook",
+  "name": "ciniapp",
   "version": "1.0.0",
   "private": true,
+  "description": "CineBook - Production-ready cinema ticket-booking platform for Vercel with Neon PostgreSQL and Drizzle ORM",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/captsyed30-art/Ciniapp.git"
+  },
+  "author": "Capt. Syed Gulam",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

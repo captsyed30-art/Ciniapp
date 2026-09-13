@@ -129,10 +129,7 @@ npm run build
 
 ### Step 1: Push Code to GitHub / Git Provider
 ```bash
-git init
-git add .
-git commit -m "feat: initial CineBook production release"
-git remote add origin https://github.com/your-username/cinebook.git
+git remote add origin https://github.com/captsyed30-art/Ciniapp.git
 git push -u origin main
 ```
 
